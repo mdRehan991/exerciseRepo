@@ -3,7 +3,12 @@
 Screen Shot -->
 
 Question :
+Create the below screen in React-Native.
 
+  1)Use View with background color instead of images.  
+  2)No need to add icons.
+
+<img width="371" alt="Screenshot 2021-10-06 at 11 28 11 PM" src="https://user-images.githubusercontent.com/62723964/136818874-00854c02-4bda-4b59-8534-14ff43a4a2e0.jpg">
 
 1) IPhone :
 
