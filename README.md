@@ -6,3 +6,9 @@ Screen Shots :
 
 1) Iphone view :
 
+<img width="370" alt="Screenshot 2021-10-11 at 8 43 21 PM" src="https://user-images.githubusercontent.com/62723964/136814938-5e72603a-97b7-4555-9db0-2b1b79fbf0a6.png">
+
+
+2) Android view :
+
+<img width="341" alt="Screenshot 2021-10-11 at 8 45 55 PM" src="https://user-images.githubusercontent.com/62723964/136814981-a5b7d1fa-674f-44d9-8a10-94584549d77e.png">
