@@ -3,10 +3,13 @@ Create a text input , text and view alongwith the following steps:-
 
       You will input the hex code of a color, and validate that hexcode on submit.  
       If it is a valid hex code convert it into RGB and show its value in the <Text>   
-      Give that RGB value as background color for the <View>.  
+      Give that RGB value as background color for the <View>.
       
 &nbsp;  
 
+**NOTE : Here you can use both  "3-digit"  as well as  "6-digit"  HEX Code.**
+
+&nbsp;  
 
 Output -->
 
