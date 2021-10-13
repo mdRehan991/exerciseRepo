@@ -24,19 +24,17 @@ const Product = props => {
   return (
     <View>
       <View>
-        <View>
-          <Image style={styles.image} source={props.productData.path} />
-          <View style={styles.container2}>
-            <Text style={styles.textNew}>NEW</Text>
-          </View>
-          <View style={styles.container3}>
-            <TouchableOpacity onPress={() => setIcon(!icon)}>
-              <View style={styles.heartView}>{iconFun()}</View>
-            </TouchableOpacity>
-          </View>
+        <Image style={styles.image} source={props.productData.path} />
+        <View style={styles.container1}>
+          <Text style={styles.textNew}>NEW</Text>
+        </View>
+        <View style={styles.container2}>
+          <TouchableOpacity onPress={() => setIcon(!icon)}>
+            <View style={styles.heartView}>{iconFun()}</View>
+          </TouchableOpacity>
         </View>
       </View>
-      <View style={styles.container4}>
+      <View style={styles.container3}>
         <Text style={styles.textTop}>{props.productData.text1}</Text>
         <Text style={styles.textMiddle}>{props.productData.text2}</Text>
         <Text style={styles.textMiddle}>{props.productData.text3}</Text>
@@ -47,19 +45,13 @@ const Product = props => {
 };
 
 const styles = StyleSheet.create({
-  container1: {
-    width: windowWidth / 2 - 20,
-    height: windowHeight / 3 - 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
 
   image: {
     width: windowWidth / 2 - 15,
     height: windowHeight / 3 - 15,
   },
 
-  container2: {
+  container1: {
     width: 35,
     height: 20,
     backgroundColor: 'green',
@@ -73,7 +65,7 @@ const styles = StyleSheet.create({
     fontSize: 11,
   },
 
-  container3: {
+  container2: {
     position: 'absolute',
     left: windowWidth / 2 - 45,
     top: 7,
@@ -88,29 +80,28 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 
-  container4: {
+  container3: {
     width: windowWidth / 2 - 40,
     marginTop: 10,
+    marginBottom: 15,
   },
 
   textTop: {
-    fontWeight: "500",
+    fontWeight: '500',
     marginBottom: 5,
   },
 
   textMiddle: {
-    fontWeight: "300",
+    fontWeight: '300',
     marginBottom: 5,
     fontSize: 12,
-
   },
 
   textEnd: {
     fontSize: 15,
-    fontWeight: "500",
+    fontWeight: '500',
     marginBottom: 10,
   },
-
 });
 
 export default Product;

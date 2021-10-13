@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, Text, SafeAreaView, ScrollView, Dimensions, StyleSheet} from 'react-native';
+import {
+  View,
+  Text,
+  SafeAreaView,
+  ScrollView,
+  Dimensions,
+  StyleSheet,
+} from 'react-native';
 import CustomButton from '../components/CustomButton';
 import CustomTag from '../components/CustomTag';
 import Product from '../components/Product';
@@ -96,12 +103,8 @@ const Home = () => {
         <View style={styles.scrollView2_View}>
           <Product productData={data.list1} />
           <Product productData={data.list2} />
-        </View>
-        <View style={styles.scrollView2_View}>
           <Product productData={data.list3} />
           <Product productData={data.list4} />
-        </View>
-        <View style={styles.scrollView2_View}>
           <Product productData={data.list5} />
           <Product productData={data.list6} />
         </View>
@@ -159,8 +162,8 @@ const styles = StyleSheet.create({
 
   scrollView2_View: {
     flexDirection: 'row',
+    flexWrap: "wrap",
     justifyContent: 'space-evenly',
-    marginBottom: 15,
   },
 });
 
