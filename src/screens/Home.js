@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, SafeAreaView, ScrollView, Dimensions} from 'react-native';
+import {View, Text, SafeAreaView, ScrollView, Dimensions, StyleSheet} from 'react-native';
 import CustomButton from '../components/CustomButton';
 import CustomTag from '../components/CustomTag';
 import Product from '../components/Product';
@@ -65,34 +65,21 @@ const data = {
 
 const Home = () => {
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-around',
-          borderBottomWidth: 0.5,
-          borderBottomColor: '#b3b3b3',
-        }}>
-        <View style={{justifyContent: 'center', width: windowWidth / 2}}>
-          <Text style={{fontSize: 11, marginLeft: 15}}>195 items</Text>
+    <SafeAreaView style={styles.safeView}>
+      <View style={styles.container1}>
+        <View style={styles.container1_View1}>
+          <Text style={styles.container1_View1_Text}>195 items</Text>
         </View>
-        <View style={{flexDirection: 'row'}}>
+        <View style={styles.container1_View2}>
           <CustomButton title="SORT" iconName="swap-vertical" />
-          <View style={{justifyContent: 'center'}}>
-            <Text style={{fontSize: 30, fontWeight: '100', color: '#bfbfbf'}}>
-              |
-            </Text>
+          <View style={styles.container1_View2_View}>
+            <Text style={styles.container1_View2_View_Text}>|</Text>
           </View>
           <CustomButton title="FILTER" iconName="funnel-outline" />
         </View>
       </View>
       <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-evenly',
-            marginVertical: 20,
-          }}>
+        <View style={styles.scrollView1_View}>
           <CustomTag title="Polo Shirts" />
           <CustomTag title="Dress Shirts" />
           <CustomTag title="Shorts" />
@@ -103,31 +90,18 @@ const Home = () => {
           <CustomTag title="Jackets" />
         </View>
       </ScrollView>
-      <ScrollView style={{marginTop: 10}} showsVerticalScrollIndicator={false}>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-evenly',
-            marginBottom: 15,
-          }}>
+      <ScrollView
+        style={styles.scrollView2}
+        showsVerticalScrollIndicator={false}>
+        <View style={styles.scrollView2_View}>
           <Product productData={data.list1} />
           <Product productData={data.list2} />
         </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-evenly',
-            marginBottom: 15,
-          }}>
+        <View style={styles.scrollView2_View}>
           <Product productData={data.list3} />
           <Product productData={data.list4} />
         </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-evenly',
-            marginBottom: 15,
-          }}>
+        <View style={styles.scrollView2_View}>
           <Product productData={data.list5} />
           <Product productData={data.list6} />
         </View>
@@ -135,5 +109,59 @@ const Home = () => {
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  safeView: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+
+  container1: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    borderBottomWidth: 0.5,
+    borderBottomColor: '#b3b3b3',
+  },
+
+  container1_View1: {
+    justifyContent: 'center',
+    width: windowWidth / 2,
+  },
+
+  container1_View1_Text: {
+    fontSize: 11,
+    marginLeft: 15,
+  },
+
+  container1_View2: {
+    flexDirection: 'row',
+  },
+
+  container1_View2_View: {
+    justifyContent: 'center',
+  },
+
+  container1_View2_View_Text: {
+    fontSize: 30,
+    fontWeight: '100',
+    color: '#bfbfbf',
+  },
+
+  scrollView1_View: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    marginVertical: 20,
+  },
+
+  scrollView2: {
+    marginTop: 10,
+  },
+
+  scrollView2_View: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    marginBottom: 15,
+  },
+});
 
 export default Home;
