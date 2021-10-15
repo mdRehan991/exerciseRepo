@@ -26,7 +26,7 @@ function TabNavigator() {
         {
           text: 'Exit',
           onPress: () => BackHandler.exitApp(),
-          style: 'Exit',
+          style: 'destructive',
         },
       ]);
       return true;
