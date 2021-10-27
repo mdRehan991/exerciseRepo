@@ -11,10 +11,30 @@ import {Data} from '../components/Data';
 import CustomInputBox from '../components/CustomInputBox';
 import {customAlert} from '../components/customAlert';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { CommonActions } from '@react-navigation/native';
 
 const {width, height} = Dimensions.get('window');
 
 const SignUp = ({navigation}) => {
+
+  React.useEffect( () => {
+    const resetHome = async () => {
+      const value = await AsyncStorage.getItem('@keyData');
+      if(!!value){
+        navigation.dispatch(
+          CommonActions.reset({
+            index: 1,
+            routes: [
+              { name: 'Home' },
+            ],
+          })
+        );
+      }
+    }
+    resetHome();
+  }, [])
+
+
   const [userData, setUserData] = useState({
     username: '',
     email: '',

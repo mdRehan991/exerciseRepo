@@ -9,6 +9,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const Stack = createNativeStackNavigator();
 
 const StackNavigator = () => {
+
   const alertTest = navigation => {
     Alert.alert('Watchout !', 'Do you want to Logout!', [
       {
@@ -18,7 +19,7 @@ const StackNavigator = () => {
 
       {
         text: 'Yes',
-        onPress: () => navigation.push('SignUp'),
+        onPress: async () => navigation.push('SignUp'),
         style: 'destructive',
       },
     ]);
@@ -28,11 +29,7 @@ const StackNavigator = () => {
     const clearAll = async () => {
       try {
         await AsyncStorage.clear();
-        // navigation.reset({
-        //     index: 0,
-        // });
       } catch (e) {
-        // clear error
       }
     };
     clearAll();
@@ -41,30 +38,30 @@ const StackNavigator = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName={"SignUp"}>
-        <Stack.Screen
-          name="SignUp"
-          component={SignUp}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="Home"
-          component={Home}
-          options={({navigation}) => ({
-            headerBackVisible: false,
-            headerRight: () => (
-              <TouchableOpacity onPress={() => func(navigation)}>
-                <Image
-                  style={styles.exitButton}
-                  source={require('../assets/exit.png')}
-                />
-              </TouchableOpacity>
-            ),
-          })}
-        />
-      </Stack.Navigator>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="SignUp"
+            component={SignUp}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="Home"
+            component={Home}
+            options={({navigation}) => ({
+              headerBackVisible: false,
+              headerRight: () => (
+                <TouchableOpacity onPress={() => func(navigation)}>
+                  <Image
+                    style={styles.exitButton}
+                    source={require('../assets/exit.png')}
+                  />
+                </TouchableOpacity>
+              ),
+            })}
+          />
+        </Stack.Navigator>
     </NavigationContainer>
   );
 };
