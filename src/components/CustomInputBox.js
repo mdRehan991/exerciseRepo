@@ -18,6 +18,7 @@ const CustomInputBox = props => {
       />
       <TextInput
         style={[styles.input, focus ? styles.inputFocus : null]}
+        maxLength={props.data.length}
         placeholder={props.data.text}
         onFocus={() => setFocus(true)}
         onBlur={() => setFocus(false)}

@@ -10,7 +10,7 @@ const Stack = createNativeStackNavigator();
 
 const StackNavigator = () => {
   const alertTest = navigation => {
-    Alert.alert('Logout', 'Do you want to Logout!', [
+    Alert.alert('Watchout !', 'Do you want to Logout!', [
       {
         text: 'No',
         style: 'cancel',

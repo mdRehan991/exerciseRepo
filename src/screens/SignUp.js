@@ -9,7 +9,8 @@ import {
 } from 'react-native';
 import {Data} from '../components/Data';
 import CustomInputBox from '../components/CustomInputBox';
-import AsyncStorage from '@react-native-async-storage/async-storage'
+import {customAlert} from '../components/customAlert';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const {width, height} = Dimensions.get('window');
 
@@ -25,42 +26,27 @@ const SignUp = ({navigation}) => {
   const recieveValue = (value, id) => {
     if (id === 1) {
       setUserData({
+        ...userData,
         username: value,
-        email: userData.email,
-        phone: userData.phone,
-        password: userData.password,
-        confirmPassword: userData.confirmPassword,
       });
     } else if (id === 2) {
       setUserData({
-        username: userData.username,
+        ...userData,
         email: value,
-        phone: userData.phone,
-        password: userData.password,
-        confirmPassword: userData.confirmPassword,
       });
     } else if (id === 3) {
       setUserData({
-        username: userData.username,
-        email: userData.email,
+        ...userData,
         phone: value,
-        password: userData.password,
-        confirmPassword: userData.confirmPassword,
       });
     } else if (id === 4) {
       setUserData({
-        username: userData.username,
-        email: userData.email,
-        phone: userData.phone,
+        ...userData,
         password: value,
-        confirmPassword: userData.confirmPassword,
       });
     } else if (id === 5) {
       setUserData({
-        username: userData.username,
-        email: userData.email,
-        phone: userData.phone,
-        password: userData.password,
+        ...userData,
         confirmPassword: value,
       });
     }
@@ -68,13 +54,8 @@ const SignUp = ({navigation}) => {
 
   const storeData = async value => {
     try {
-      if (
-        value.username &&
-        value.email &&
-        value.phone &&
-        value.password &&
-        value.confirmPassword
-      ) {
+      const flag = customAlert(userData);
+      if (flag === true) {
         await AsyncStorage.setItem('@keyData', JSON.stringify(value));
         navigation.push('Home');
       }
