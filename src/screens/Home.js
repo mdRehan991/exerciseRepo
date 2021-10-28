@@ -20,7 +20,7 @@ class Home extends Component {
   render() {
     return (
       <SafeAreaView style={{flex: 1, backgroundColor: '#000'}}>
-        <StatusBar barStyle="light-content" />
+        <StatusBar barStyle="light-content" backgroundColor="#000" />
         <View style={styles.header}>
           <Text style={styles.headerText}>Your Notes !</Text>
         </View>
@@ -28,7 +28,7 @@ class Home extends Component {
           style={styles.list}
           showsVerticalScrollIndicator={false}
           data={this.props.arrData}
-          keyExtractor={x => x.id}
+          keyExtractor={(x, i) => i}
           renderItem={({item}) => (
             <TouchableOpacity
               style={styles.container}
