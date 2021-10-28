@@ -28,7 +28,7 @@ Output --->
 
 2) Android view :
 
-<img width="240" height="500" alt="Screenshot 2021-10-29 at 3 35 32 AM" src="https://user-images.githubusercontent.com/62723964/139344120-c4ffe28d-5cc6-4c99-b221-0d8bc1276a69.png"> <img width="240" height="500" alt="Screenshot 2021-10-29 at 3 35 38 AM" src="https://user-images.githubusercontent.com/62723964/139344148-8fbc494c-e393-4d15-a028-fc4de81cbbe6.png">
+<img width="240" height="500" alt="Screenshot 2021-10-29 at 4 11 36 AM" src="https://user-images.githubusercontent.com/62723964/139346112-382d0e1f-fef1-4717-9997-50ec451547dd.png"> <img width="240" height="500" alt="Screenshot 2021-10-29 at 4 11 41 AM" src="https://user-images.githubusercontent.com/62723964/139346135-19813125-947b-4426-b596-ebd873fa53ca.png">
 
-<img width="240" height="500" alt="Screenshot 2021-10-29 at 3 41 16 AM" src="https://user-images.githubusercontent.com/62723964/139344184-2bcc3482-add5-4de1-9de7-7417d48bf0da.png"> <img width="240" height="500" alt="Screenshot 2021-10-29 at 3 41 10 AM" src="https://user-images.githubusercontent.com/62723964/139344203-c5b340c6-e8f8-4581-911c-18b19fae9cb2.png">
+<img width="240" height="500" alt="Screenshot 2021-10-29 at 4 11 22 AM" src="https://user-images.githubusercontent.com/62723964/139346178-035920ca-4768-4b8f-ba66-8e11ce1e53ac.png"> <img width="240" height="500" alt="Screenshot 2021-10-29 at 4 11 28 AM" src="https://user-images.githubusercontent.com/62723964/139346191-f73f4622-6d63-4baf-a434-5e29b5a6039c.png">
 
