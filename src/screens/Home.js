@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import {
   View,
   Text,
@@ -8,6 +8,7 @@ import {
   ScrollView,
   Image,
   Alert,
+  StatusBar,
 } from 'react-native';
 import {inject, observer} from 'mobx-react';
 
@@ -26,7 +27,7 @@ class Home extends Component {
     });
   };
 
-  deleteNote = id => {
+  deleteNote = index => {
     Alert.alert('Delete this note?', '', [
       {
         text: 'Cancel',
@@ -34,7 +35,7 @@ class Home extends Component {
       },
       {
         text: 'Delete',
-        onPress: () => this.props.homeStore.deleteApi(id),
+        onPress: () => this.props.homeStore.deleteApi(index),
         style: 'destructive',
       },
     ]);
@@ -42,58 +43,55 @@ class Home extends Component {
 
   render() {
     return (
-      <Fragment>
-        <SafeAreaView style={styles.safeViewTop} />
-        <SafeAreaView style={styles.safeViewRest}>
-          {this.props.homeStore.homeStoreState == '' ? (
-            <View style={styles.header}>
-              <Text style={styles.headerText}>you do not have any notes</Text>
+      <SafeAreaView style={styles.safeView}>
+        <StatusBar barStyle="dark-content" backgroundColor="#5fdac4" />
+        {this.props.homeStore.homeStoreState == '' ? (
+          <View style={styles.header}>
+            <Text style={styles.headerText}>you do not have any notes</Text>
+          </View>
+        ) : null}
+        <ScrollView
+          style={[
+            this.props.homeStore.homeStoreState == ''
+              ? styles.listOff
+              : styles.listOn,
+          ]}
+          showsVerticalScrollIndicator={false}>
+          {this.props.homeStore.homeStoreState.map((item, index) => (
+            <View key={index}>
+              <TouchableOpacity
+                style={styles.listButton}
+                onPress={() => {
+                  const arr = {...item, index}
+                  this.props.navigation.navigate('Edit', arr)}
+                }
+                onLongPress={() => this.deleteNote(index)}>
+                <Text style={styles.title} numberOfLines={1}>
+                  {item.title}
+                </Text>
+                <Text style={styles.body} numberOfLines={3}>
+                  {item.body}
+                </Text>
+              </TouchableOpacity>
             </View>
-          ) : null}
-          <ScrollView
-            style={[
-              this.props.homeStore.homeStoreState == ''
-                ? styles.listOff
-                : styles.listOn,
-            ]}
-            showsVerticalScrollIndicator={false}>
-            {this.props.homeStore.homeStoreState.map((item, i) => (
-              <View key={i}>
-                <TouchableOpacity
-                  style={styles.listButton}
-                  onPress={() => this.props.navigation.navigate('Edit', item)}
-                  onLongPress={() => this.deleteNote(item.id)}>
-                  <Text style={styles.title} numberOfLines={1}>
-                    {item.title}
-                  </Text>
-                  <Text style={styles.body} numberOfLines={3}>
-                    {item.body}
-                  </Text>
-                </TouchableOpacity>
-              </View>
-            ))}
-          </ScrollView>
-          <TouchableOpacity
-            style={styles.createButton}
-            onPress={this.createFunction}>
-            <Image
-              style={styles.plusSign}
-              source={require('../assets/plusMath.png')}
-            />
-            <Text style={styles.createButtonText}>ADD NEW NOTE</Text>
-          </TouchableOpacity>
-        </SafeAreaView>
-      </Fragment>
+          ))}
+        </ScrollView>
+        <TouchableOpacity
+          style={styles.createButton}
+          onPress={this.createFunction}>
+          <Image
+            style={styles.plusSign}
+            source={require('../assets/plusMath.png')}
+          />
+          <Text style={styles.createButtonText}>ADD NEW NOTE</Text>
+        </TouchableOpacity>
+      </SafeAreaView>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  safeViewTop: {
-    flex: 0,
-    backgroundColor: '#5fdac4',
-  },
-  safeViewRest: {
+  safeView: {
     flex: 1,
     backgroundColor: '#fff',
   },

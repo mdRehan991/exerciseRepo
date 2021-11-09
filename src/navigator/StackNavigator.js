@@ -16,8 +16,9 @@ const StackNavigator = () => {
           component={Home}
           options={{
             title: 'Simple Note Taker',
-            headerTransparent: true,
+            headerStyle: {backgroundColor: '#5fdac4'},
             headerTintColor: '#808080',
+            headerTitleAlign: 'center',
           }}
         />
         <Stack.Screen
@@ -25,9 +26,10 @@ const StackNavigator = () => {
           component={Edit}
           options={({navigation}) => ({
             title: 'Add a new note',
-            headerTransparent: true,
-            headerBackVisible: false,
+            headerStyle: {backgroundColor: '#5fdac4'},
             headerTintColor: '#808080',
+            headerTitleAlign: 'center',
+            headerBackVisible: false,
             headerRight: () => (
               <TouchableOpacity onPress={() => navigation.navigate('Home')}>
                 <Image

@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import {
   View,
   SafeAreaView,
@@ -6,6 +6,7 @@ import {
   StyleSheet,
   TextInput,
   Image,
+  StatusBar,
 } from 'react-native';
 import {inject, observer} from 'mobx-react';
 
@@ -41,6 +42,7 @@ class Edit extends Component {
       this.props.homeStore.updateApi(
         this.state,
         this.props.editStore.editStoreState.id,
+        this.props.editStore.editStoreState.index,
       );
       this.props.navigation.navigate('Home');
     }
@@ -48,57 +50,51 @@ class Edit extends Component {
 
   render() {
     return (
-      <Fragment>
-        <SafeAreaView style={styles.safeViewTop} />
-        <SafeAreaView style={styles.safeViewRest}>
-          <View style={styles.container}>
+      <SafeAreaView style={styles.safeView}>
+        <StatusBar barStyle="dark-content" backgroundColor="#5fdac4" />
+        <View style={styles.container}>
+          <View>
+            <TextInput
+              style={styles.inputTitle}
+              maxLength={100}
+              placeholder="Add Title Here"
+              placeholderTextColor="#808080"
+              defaultValue={this.props.editStore.editStoreState.title}
+              onChangeText={val =>
+                this.setState({...this.state, updatedTitle: val})
+              }
+            />
+          </View>
+          <View>
             <View>
               <TextInput
-                style={styles.inputTitle}
-                maxLength={100}
-                placeholder="Add Title Here"
+                style={styles.inputBody}
+                placeholder="Add Note Here"
                 placeholderTextColor="#808080"
-                defaultValue={this.props.editStore.editStoreState.title}
+                defaultValue={this.props.editStore.editStoreState.body}
+                multiline={true}
                 onChangeText={val =>
-                  this.setState({...this.state, updatedTitle: val})
+                  this.setState({...this.state, updatedBody: val})
                 }
               />
             </View>
-            <View>
-              <View>
-                <TextInput
-                  style={styles.inputBody}
-                  placeholder="Add Note Here"
-                  placeholderTextColor="#808080"
-                  defaultValue={this.props.editStore.editStoreState.body}
-                  multiline={true}
-                  onChangeText={val =>
-                    this.setState({...this.state, updatedBody: val})
-                  }
-                />
-              </View>
-            </View>
           </View>
-          <TouchableOpacity
-            style={styles.buttonContainer}
-            onPress={this.saveFunction}>
-            <Image
-              style={styles.buttonImage}
-              source={require('../assets/checkmark.png')}
-            />
-          </TouchableOpacity>
-        </SafeAreaView>
-      </Fragment>
+        </View>
+        <TouchableOpacity
+          style={styles.buttonContainer}
+          onPress={this.saveFunction}>
+          <Image
+            style={styles.buttonImage}
+            source={require('../assets/checkmark.png')}
+          />
+        </TouchableOpacity>
+      </SafeAreaView>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  safeViewTop: {
-    flex: 0,
-    backgroundColor: '#5fdac4',
-  },
-  safeViewRest: {
+  safeView: {
     flex: 1,
     backgroundColor: '#fff',
   },
