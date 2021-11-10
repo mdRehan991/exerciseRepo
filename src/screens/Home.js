@@ -74,7 +74,7 @@ const Home = () => {
 
     switch (result.platform) {
       case 'android':
-        setCurrentColor(result.vibrant);
+        setCurrentColor(result.darkMuted);
         break;
       case 'ios':
         setCurrentColor(result.primary);
