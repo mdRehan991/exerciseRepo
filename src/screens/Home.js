@@ -86,7 +86,7 @@ const Home = () => {
 
   return (
     <SafeAreaView style={[styles.safeView, {backgroundColor: currentColor}]}>
-      <StatusBar barStyle={'light-content'} />
+      <StatusBar barStyle={'light-content'} backgroundColor={currentColor} />
       <View style={styles.containerMain}>
         <Image style={styles.artwork} source={{uri: trackArtwork}} />
         <Text style={styles.title}>{trackTitle}</Text>
