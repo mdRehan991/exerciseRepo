@@ -1,0 +1,207 @@
+{
+    "id": "helloworld",
+    "common": {
+        "id": "com.ttn.renativeoverview",
+        "title": "Overview",
+        "description": "Cross-platform application project based on ReNative",
+        "author": {
+            "name": "Pavel Jacko",
+            "email": "Pavel Jacko <i@pavjacko.com>",
+            "url": "https://github.com/pavjacko"
+        },
+        "license": "MIT",
+        "includedPlugins": [
+            "*"
+        ],
+        "includedFonts": [
+            "*"
+        ],
+        "defaultSchemes": {
+            "run": "debug",
+            "build": "release",
+            "export": "release"
+        }
+    },
+    "platforms": {
+        "ios": {
+            "entryFile": "index.ios",
+            "scheme": "RNVApp",
+            "teamID": "",
+            "permissions": [
+                "*"
+            ],
+            "buildSchemes": {
+                "debug": {
+                    "runScheme": "Debug",
+                    "bundleAssets": false
+                },
+                "release": {
+                    "runScheme": "Release",
+                    "bundleAssets": true,
+                    "bundleIsDev": false
+                }
+            }
+        },
+        "tvos": {
+            "entryFile": "index.tvos",
+            "teamID": "",
+            "scheme": "RNVAppTVOS",
+            "buildSchemes": {
+                "debug": {
+                    "runScheme": "Debug",
+                    "bundleAssets": false
+                },
+                "release": {
+                    "scheme": "RNVAppTVOSRelease",
+                    "runScheme": "Release",
+                    "bundleAssets": true,
+                    "bundleIsDev": false
+                }
+            }
+        },
+        "android": {
+            "entryFile": "index.android",
+            "enableHermes": true,
+            "permissions": [
+                "*"
+            ],
+            "buildSchemes": {
+                "debug": {
+                    "signingConfig": "Debug",
+                    "bundleAssets": false
+                },
+                "release": {
+                    "signingConfig": "Release",
+                    "bundleAssets": true,
+                    "bundleIsDev": true
+                }
+            }
+        },
+        "androidtv": {
+            "entryFile": "index.androidtv",
+            "enableHermes": true,
+            "permissions": [
+                "*"
+            ],
+            "buildSchemes": {
+                "debug": {
+                    "signingConfig": "Debug",
+                    "bundleAssets": false
+                },
+                "release": {
+                    "signingConfig": "Release",
+                    "bundleAssets": true,
+                    "bundleIsDev": false
+                }
+            }
+        },
+        "androidwear": {
+            "entryFile": "index.androidwear",
+            "enableHermes": true,
+            "permissions": [
+                "*"
+            ],
+            "buildSchemes": {
+                "debug": {
+                    "signingConfig": "Debug",
+                    "bundleAssets": false
+                },
+                "release": {
+                    "signingConfig": "Release",
+                    "bundleAssets": true,
+                    "bundleIsDev": false
+                }
+            }
+        },
+        "macos": {
+            "entryFile": "index.macos",
+            "buildSchemes": {
+                "debug": {
+                    "bundleAssets": false,
+                    "environment": "development"
+                },
+                "release": {
+                    "bundleAssets": true,
+                    "bundleIsDev": false,
+                    "environment": "production"
+                }
+            }
+        },
+        "tizen": {
+            "appName": "ReNativeTV",
+            "package": "NkVRhWHJST",
+            "id": "NkVRhWHJST.ReNativeTV",
+            "entryFile": "index.tizen",
+            "certificateProfile": "RNVanillaCert"
+        },
+        "tizenwatch": {
+            "appName": "ReNativeWatch",
+            "package": "cHIP2fIRQZ",
+            "id": "cHIP2fIRQZ.ReNativeWatch",
+            "entryFile": "index.tizenwatch",
+            "certificateProfile": "RNVanillaCert"
+        },
+        "tizenmobile": {
+            "appName": "RenativeMobile",
+            "package": "PauodvCU2r",
+            "id": "PauodvCU2r.ReNativeMobile",
+            "entryFile": "index.tizenwatch",
+            "certificateProfile": "RNVanillaCert"
+        },
+        "web": {
+            "entryFile": "index.web",
+            "buildSchemes": {
+                "debug": {
+                    "bundleAssets": false,
+                    "environment": "developement"
+                },
+                "release": {
+                    "bundleAssets": true,
+                    "environment": "production"
+                }
+            }
+        },
+        "webos": {
+            "entryFile": "index.webos"
+        },
+        "windows": {
+            "entryFile": "index.windows"
+        },
+        "kaios": {
+            "entryFile": "index.kaios",
+            "buildSchemes": {
+                "debug": {
+                    "bundleAssets": false
+                },
+                "release": {
+                    "bundleAssets": true,
+                    "bundleIsDev": false
+                }
+            }
+        },
+        "firefoxos": {
+            "entryFile": "index.firefoxos",
+            "buildSchemes": {
+                "debug": {
+                    "bundleAssets": false
+                },
+                "release": {
+                    "bundleAssets": true,
+                    "bundleIsDev": false
+                }
+            }
+        },
+        "firefoxtv": {
+            "entryFile": "index.firefoxtv",
+            "buildSchemes": {
+                "debug": {
+                    "bundleAssets": false
+                },
+                "release": {
+                    "bundleAssets": true,
+                    "bundleIsDev": false
+                }
+            }
+        }
+    }
+}
