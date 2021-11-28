@@ -10,6 +10,7 @@ import {
   Dimensions,
   Platform,
   ScrollView,
+  Alert,
 } from 'react-native';
 import {useDispatch} from 'react-redux';
 
@@ -28,13 +29,28 @@ const Edit = ({navigation, route}) => {
   });
   const [editable, setEditable] = useState(false);
 
+  const regMail = /^([a-z 0-9 \. -]+)@([a-z 0-9]+).([a-z]{2,8})(.[a-z]{2,8})?$/;
+
   const dispatch = useDispatch();
   const updateApi = val => dispatch({type: 'UPDATE_API', payload: val});
 
   const saveFunction = () => {
     if (state.email !== '' && state.username !== '') {
-      updateApi(state);
-      navigation.navigate('Home');
+      if (regMail.test(state.email)) {
+        updateApi(state);
+        navigation.navigate('Home');
+      } else {
+        Alert.alert(
+          'Invalid E-mail Address !',
+          'Should be like: example@gmail.com',
+          [
+            {
+              text: 'OK',
+              style: 'cancel',
+            },
+          ],
+        );
+      }
     }
   };
 
